@@ -1,0 +1,5 @@
+// ■ current.json => end point hai jo data return karega json formet mein.
+
+// ■ process.env  =>  ya nodejs ka obj hai jo environmental varibles ko access krta hai
+
+// ■ (!) kisi bh cheez k mtlb ko reverse krna ho tu  [ !exclamation mark ya use krte hai ].

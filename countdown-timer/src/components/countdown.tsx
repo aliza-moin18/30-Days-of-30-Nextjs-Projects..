@@ -5,11 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";   
 
 export default function Countdown() {
-  const [duration, setDuration] = useState<number | string>("");    // Input duration (seconds)
-  const [timeLeft, setTimeLeft] = useState<number>(0);     // Time left for the countdown
-  const [isActive, setIsActive] = useState<boolean>(false);     // Timer status (active/inactive)
-  const [isPaused, setIsPaused] = useState<boolean>(false);     // Pause status
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);     // Timer reference (updated type)
+
+const [duration, setDuration] = useState<number | string>("");
+const [timeLeft, setTimeLeft] = useState<number>(0);
+const [isActive, setIsActive] = useState<boolean>(false);
+const [isPaused, setIsPaused] = useState<boolean>(false);
+const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
 
   const handleSetDuration = (): void => {
     if (typeof duration === "number" && duration > 0) {
@@ -51,7 +53,7 @@ export default function Countdown() {
   useEffect(() => {
     if (isActive && !isPaused) {
       timerRef.current = setInterval(() => {
-        setTimeLeft((prevTime) => {
+        setTimeLeft((prevTime: number) => {
           if (prevTime <= 1) {
             clearInterval(timerRef.current!);
             return 0;
